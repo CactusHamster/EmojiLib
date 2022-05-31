@@ -1,5 +1,4 @@
 const fs = require("fs"), PATH = require("path");
-const { MessageAttachment } = require("discord.js")
 const File = require("./file")
 const https = require("https");
 //const strDist = require("./levenshteinDistance")
@@ -131,7 +130,6 @@ module.exports = async function (msg, client, config) {
                 fs.writeFileSync(`./cache/images/${file.imgSize}/${file.base}`, buffer)
             }
         }
-        const attach = new MessageAttachment(buffer, file.base.toString())
 
         // Cache sent url's
         if (!localCache[path]) localCache[path] = {}
