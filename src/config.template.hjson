@@ -1,0 +1,62 @@
+/*
+config.json.template
+--------------------------------------------
+*/
+
+// An array of configuration objects may be passed instead of a single one,
+// for several users with different configurations each.
+
+// Note that matches do not include spaces in sticker/emoji names.
+// This means that :emoji name: will not work, while :emoji_name: will.
+
+{
+    name: "example config",
+    "Emojis": {
+        size: 48,
+        discord: {
+            enabled: true,
+            match: ":match:"
+        }
+        local: {
+            enabled: true,
+            match: "<match>",
+            path: "./emojis/",
+        }
+    },
+    "Stickers": {
+        size: 160,
+        discord: {
+            enabled: true,
+            match: "{match}",
+        }
+        local: {
+            enabled: true,
+            match: "=match=",
+            path: "./stickers/"
+        }
+    },
+    "Login": [
+        /*
+        * "credentials" is defined as one of the following structures:
+        * "token",
+        * {email: "email@gmail.com", password: "h4x0r_1234"}
+        * ["email@gmail.com", "h4x0r_1234"]
+        * you may supply an array of credentials here
+        * or change the `login` key to an object and supply it with a
+        * single `token` parameter or `email`/`password` key.
+
+        * Instead of using a "password" key, you may also use a 
+        * "password_base64" key in order to keep your password from being so
+        * easily read.
+        */
+        {
+            password_base64: "IOud97f8VFIOuiuo",
+            email: "discordemail@gmail.com"
+        }
+    ]
+    "Activation Commands": {
+        "enabled": true,
+        "enable": "e!enable",
+        "disable": "e!disable"
+    }
+}
